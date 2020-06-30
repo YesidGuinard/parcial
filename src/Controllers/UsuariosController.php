@@ -70,7 +70,8 @@ class UsuariosController
         $rta = "";
         $email = $parametros["email"];
         $password = $parametros["clave"];
-        $userExists = $this->validateUserExists($email);
+
+        $userExists = $this->validateUserExists($email,0);
 
         if ($userExists && $this->validateUserPasswordDB($password, $email)) {
             $token = AuthJwt::generarJWT($this->getUserByEmail($email));
