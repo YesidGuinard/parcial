@@ -44,9 +44,11 @@ class UsuariosController
         $usuario = new Usuario();
 
         $usuario->email = $parametros["email"];
-        $usuario->clave = password_hash($parametros["clave"], PASSWORD_DEFAULT);
         $usuario->nombre = $parametros["nombre"];
-        $usuario->tipo = $parametros["tipo"];
+        $usuario->clave = password_hash($parametros["clave"], PASSWORD_DEFAULT);
+        $usuario->tipo_id = $parametros["tipo"];
+        $usuario->legajo = $parametros["legajo"];
+
         $rta = Helper::formatResponse($usuario->save(), "Usuario guardado en DB");
         $response->getBody()->write($rta);
         return $response;
@@ -80,9 +82,10 @@ class UsuariosController
         return $response;
     }
 
-    static public function validateUserExists($input)
+    static public function validateUserExists($email, $legajo)
     {
-        return Usuario::where('email', $input)->exists();
+        $existe = Usuario::where('email', $email)->exists() || Usuario::where('legajo', $legajo)->exists();
+        return  $existe;
     }
 
     public function validateUserPasswordDB($password, $email): bool

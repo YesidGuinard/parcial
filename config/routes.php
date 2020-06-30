@@ -19,11 +19,11 @@ return function ($app) {
     })->add(new LoginValidateMiddleware());
 
     $app->group('/', function (RouteCollectorProxy $group) {
-        $group->post('registro[/]', UsuariosController::class . ':add');
+        $group->post('usuario[/]', UsuariosController::class . ':add');
     })->add(new ABMValidateMiddleware());
 
 
-    $app->group('/usuarios', function (RouteCollectorProxy $group) {
+    $app->group('/usuarioss', function (RouteCollectorProxy $group) {
         $group->get('[/]', UsuariosController::class . ':getAll')->add(SpecificValidateMiddleware::class)->add(SpecificOutAllUserMiddleware::class);
         $group->get('/{id}[/]', UsuariosController::class . ':getByID')->add(SpecificValidateMiddleware::class)->add(SpecificOUTValidateMiddleware::class);
         $group->delete('/{id}', UsuariosController::class . ':delete');

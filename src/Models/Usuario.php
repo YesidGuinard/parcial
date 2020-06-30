@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\SoftDeletes;
+//use Illuminate\Database\Eloquent\SoftDeletes;
 class Usuario extends \Illuminate\Database\Eloquent\Model
 {
-     protected $table = 'usuarios';
+     protected $table = 'users';
      protected $primaryKey = 'id';
-     use SoftDeletes;
-   // public $timestamps = false;
+     //use SoftDeletes;
+     public $timestamps = false;
 
 }
