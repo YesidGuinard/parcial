@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Materia;
 use App\Models\TipoMascota;
 use mysql_xdevapi\Exception;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -9,15 +10,15 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Utils\Helper;
 
 
-class TipoMascotaController
+class MateriaController
 {
 
-    public function getAll(Request $request, Response $response, $args)
+/*    public function getAll(Request $request, Response $response, $args)
     {
         $rta = Helper::formatResponse(true, TipoMascota::all());
         $response->getBody()->write($rta);
         return $response;
-    }
+    }*/
 
     public function getByID(Request $request, Response $response, $args)
     {
@@ -29,7 +30,7 @@ class TipoMascotaController
                 $response->getBody()->write($rta);
                 return $response;
             } else {
-                throw new \Exception("Tipo Mascota no encontrado", 404);
+                throw new \Exception("Tipo Materia no encontrado", 404);
             }
         } else {
             throw new \Exception("Id no puede ser inferior a 1", 400);
@@ -37,12 +38,15 @@ class TipoMascotaController
 
     }
 
-    public function add(Request $request, Response $response, $args)
+    public function addMateria(Request $request, Response $response, $args)
     {
         $parametros = $request->getParsedBody();
-        $tipoMascota = new TipoMascota();
-        $tipoMascota->tipo = $parametros["tipo"];
-        $rta = Helper::formatResponse($tipoMascota->save(), "Tipo Mascota guardado en DB");
+        $materia = new Materia();
+        $materia->materia = $parametros["materia"];
+        $materia->cuatrimestre = $parametros["cuatrimestre"];
+        $materia->vacantes = $parametros["vacantes"];
+        $materia->profesor_id = $parametros["profesor"];
+        $rta = Helper::formatResponse($materia->save(), "Tipo Materia guardado en DB");
         $response->getBody()->write($rta);
         return $response;
     }

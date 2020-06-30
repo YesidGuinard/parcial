@@ -207,7 +207,8 @@ class ComposerStaticInita9dc5faf8d4d60c6c1dc6f2b36fe7acb
     );
 
     public static $classMap = array (
-        'App\\Controllers\\TipoMascotaController' => __DIR__ . '/../..' . '/src/Controllers/TipoMascotaController.php',
+        'App\\Controllers\\MateriaController' => __DIR__ . '/../..' . '/src/Controllers/MateriaController.php',
+        'App\\Controllers\\TipoController' => __DIR__ . '/../..' . '/src/Controllers/TipoController.php',
         'App\\Controllers\\TurnosController' => __DIR__ . '/../..' . '/src/Controllers/TurnosController.php',
         'App\\Controllers\\UsuariosController' => __DIR__ . '/../..' . '/src/Controllers/UsuariosController.php',
         'App\\Middleware\\AuthMiddleware' => __DIR__ . '/../..' . '/src/Middlewares/AuthMiddleware.php',
@@ -215,10 +216,12 @@ class ComposerStaticInita9dc5faf8d4d60c6c1dc6f2b36fe7acb
         'App\\Middleware\\User\\ABMValidateMiddleware' => __DIR__ . '/../..' . '/src/Middlewares/User/ABMValidateMiddleware.php',
         'App\\Middleware\\User\\AdminTypeMiddleware' => __DIR__ . '/../..' . '/src/Middlewares/User/AdminTypeMiddleware.php',
         'App\\Middleware\\User\\LoginValidateMiddleware' => __DIR__ . '/../..' . '/src/Middlewares/User/LoginValidateMiddleware.php',
+        'App\\Middleware\\User\\MateriaProfesorValidaMiddleware' => __DIR__ . '/../..' . '/src/Middlewares/User/MateriaProfesorValidaMiddleware.php',
         'App\\Middleware\\User\\SpecificOUTValidateMiddleware' => __DIR__ . '/../..' . '/src/Middlewares/User/SpecificOUTValidateMiddleware.php',
         'App\\Middleware\\User\\SpecificOutAllUserMiddleware' => __DIR__ . '/../..' . '/src/Middlewares/User/SpecificOutAllUserMiddleware.php',
         'App\\Middleware\\User\\SpecificValidateMiddleware' => __DIR__ . '/../..' . '/src/Middlewares/User/SpecificValidateMiddleware.php',
-        'App\\Models\\Mascota' => __DIR__ . '/../..' . '/src/Models/Mascota.php',
+        'App\\Models\\Materia' => __DIR__ . '/../..' . '/src/Models/Materia.php',
+        'App\\Models\\Tipo' => __DIR__ . '/../..' . '/src/Models/Tipo.php',
         'App\\Models\\TipoMascota' => __DIR__ . '/../..' . '/src/Models/TipoMascota.php',
         'App\\Models\\Turnos' => __DIR__ . '/../..' . '/src/Models/Turnos.php',
         'App\\Models\\UTN\\Inscripcion' => __DIR__ . '/../..' . '/src/Models/UTN/Inscripcion.php',

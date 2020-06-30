@@ -6,7 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'App\\Controllers\\TipoMascotaController' => $baseDir . '/src/Controllers/TipoMascotaController.php',
+    'App\\Controllers\\MateriaController' => $baseDir . '/src/Controllers/MateriaController.php',
+    'App\\Controllers\\TipoController' => $baseDir . '/src/Controllers/TipoController.php',
     'App\\Controllers\\TurnosController' => $baseDir . '/src/Controllers/TurnosController.php',
     'App\\Controllers\\UsuariosController' => $baseDir . '/src/Controllers/UsuariosController.php',
     'App\\Middleware\\AuthMiddleware' => $baseDir . '/src/Middlewares/AuthMiddleware.php',
@@ -14,10 +15,12 @@ return array(
     'App\\Middleware\\User\\ABMValidateMiddleware' => $baseDir . '/src/Middlewares/User/ABMValidateMiddleware.php',
     'App\\Middleware\\User\\AdminTypeMiddleware' => $baseDir . '/src/Middlewares/User/AdminTypeMiddleware.php',
     'App\\Middleware\\User\\LoginValidateMiddleware' => $baseDir . '/src/Middlewares/User/LoginValidateMiddleware.php',
+    'App\\Middleware\\User\\MateriaProfesorValidaMiddleware' => $baseDir . '/src/Middlewares/User/MateriaProfesorValidaMiddleware.php',
     'App\\Middleware\\User\\SpecificOUTValidateMiddleware' => $baseDir . '/src/Middlewares/User/SpecificOUTValidateMiddleware.php',
     'App\\Middleware\\User\\SpecificOutAllUserMiddleware' => $baseDir . '/src/Middlewares/User/SpecificOutAllUserMiddleware.php',
     'App\\Middleware\\User\\SpecificValidateMiddleware' => $baseDir . '/src/Middlewares/User/SpecificValidateMiddleware.php',
-    'App\\Models\\Mascota' => $baseDir . '/src/Models/Mascota.php',
+    'App\\Models\\Materia' => $baseDir . '/src/Models/Materia.php',
+    'App\\Models\\Tipo' => $baseDir . '/src/Models/Tipo.php',
     'App\\Models\\TipoMascota' => $baseDir . '/src/Models/TipoMascota.php',
     'App\\Models\\Turnos' => $baseDir . '/src/Models/Turnos.php',
     'App\\Models\\UTN\\Inscripcion' => $baseDir . '/src/Models/UTN/Inscripcion.php',

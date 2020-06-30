@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 
+use App\Models\TipoMascota;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Models\Usuario;
@@ -71,7 +72,7 @@ class UsuariosController
         $email = $parametros["email"];
         $password = $parametros["clave"];
 
-        $userExists = $this->validateUserExists($email,0);
+        $userExists = $this->validateUserExists($email, 0);
 
         if ($userExists && $this->validateUserPasswordDB($password, $email)) {
             $token = AuthJwt::generarJWT($this->getUserByEmail($email));
@@ -86,7 +87,7 @@ class UsuariosController
     static public function validateUserExists($email, $legajo)
     {
         $existe = Usuario::where('email', $email)->exists() || Usuario::where('legajo', $legajo)->exists();
-        return  $existe;
+        return $existe;
     }
 
     public function validateUserPasswordDB($password, $email): bool
@@ -101,7 +102,24 @@ class UsuariosController
 
     public function getUserByEmail($email)
     {
-        return $user = Usuario::where('email', $email)->first();
+        return Usuario::where('email', $email)->first();
+    }
+
+    static public function validateTipoExists($input)
+    {
+        return Usuario::where('tipo', $input)->exists();
+
+    }
+
+    static public function validateTipoProfesor($idProfe)
+    {
+        $usuario = Usuario::where('id', $idProfe)->first();
+        if (isset($usuario)) {
+            $tipo = $usuario->tipo_id;
+            if ($tipo === 2)
+                return true;
+        }
+        return false;
 
     }
 

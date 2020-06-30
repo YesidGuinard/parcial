@@ -14,7 +14,7 @@ class AuthJwt
         AuthJwt::$payload=array(
             'email'=>$user['email'],
             'nombre'=>$user['nombre'],
-            'tipo'=>$user['tipo']
+            'tipo'=>$user['tipo_id']
         );
 
         return JWT::encode(self::$payload,self::$key);
