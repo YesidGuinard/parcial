@@ -10,7 +10,7 @@ use App\Utils\Helper;
 new Database();
 
 $app = AppFactory::create();
-$app->setBasePath("/apirest/public");
+$app->setBasePath("/parcial/public");
 $app->addRoutingMiddleware();
 
 $customErrorHandler = function (
