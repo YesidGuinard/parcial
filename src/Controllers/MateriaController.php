@@ -7,7 +7,6 @@ use App\Models\TipoMascota;
 use App\Models\Turnos;
 use App\Models\Usuario;
 use App\Utils\AuthJwt;
-use mysql_xdevapi\Exception;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use App\Utils\Helper;
@@ -16,12 +15,6 @@ use App\Utils\Helper;
 class MateriaController
 {
 
-/*    public function getMaterias(Request $request, Response $response, $args)
-    {
-        $rta = Helper::formatResponse(true, Materia::all());
-        $response->getBody()->write($rta);
-        return $response;
-    }*/
 
     public function getByID(Request $request, Response $response, $args)
     {
