@@ -12,13 +12,6 @@ use App\Utils\Helper;
 class TipoController
 {
 
-    public function getAll(Request $request, Response $response, $args)
-    {
-        $rta = Helper::formatResponse(true, Tipo::all());
-        $response->getBody()->write($rta);
-        return $response;
-    }
-
     static public function validateTipoExists($input)
     {
         return Tipo::where('tipo', $input)->exists();

@@ -16,12 +16,12 @@ use App\Utils\Helper;
 class MateriaController
 {
 
-    public function getMaterias(Request $request, Response $response, $args)
+/*    public function getMaterias(Request $request, Response $response, $args)
     {
         $rta = Helper::formatResponse(true, Materia::all());
         $response->getBody()->write($rta);
         return $response;
-    }
+    }*/
 
     public function getByID(Request $request, Response $response, $args)
     {
@@ -63,11 +63,33 @@ class MateriaController
         return $response;
     }
 
+    public function AsignaProfe(Request $request, Response $response, $args)
+    {
+        $id_materia = $args["id"];
+        $profesor_id = $args["profesor"];
+        if (empty($id) || empty($profesor_id) ) {
+            throw new \Exception("Campos vacios",400);
+        }
+
+        if(!Usuario::validateTipoProfesor($profesor_id))
+                    throw new \Exception("id_profesor no es profesor",400);
+
+        if(!MateriaController::validateMateriaExists($id_materia))
+            throw new \Exception("id_materia no es materia Valida o no existe",400);
+
+        $materia = Materia::find($id_materia);
+        $materia->profesor_id= $profesor_id;
+
+        $rta = Helper::formatResponse($materia->save(), "Profesor Asignado a Materia guardado en DB");
+        $response->getBody()->write($rta);
+        return $response;
+    }
+
+
     static public function validateMateriaExists($input)
     {
         return Materia::where('id', $input)->exists();
 
     }
-
 
 }
