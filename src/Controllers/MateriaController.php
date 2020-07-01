@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use App\Models\Materia;
 use App\Models\TipoMascota;
+use App\Models\Turnos;
+use App\Models\Usuario;
+use App\Utils\AuthJwt;
 use mysql_xdevapi\Exception;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
@@ -13,27 +16,36 @@ use App\Utils\Helper;
 class MateriaController
 {
 
-/*    public function getAll(Request $request, Response $response, $args)
+    public function getMaterias(Request $request, Response $response, $args)
     {
-        $rta = Helper::formatResponse(true, TipoMascota::all());
+        $rta = Helper::formatResponse(true, Materia::all());
         $response->getBody()->write($rta);
         return $response;
-    }*/
+    }
 
     public function getByID(Request $request, Response $response, $args)
     {
+        $token = $request->getHeader('token')[0];
+        $valido = AuthJwt::validarJWT($token);
+        $tipoUser = $valido->tipo;
         $id = $args["id"];
         if (!empty($id)) {
-            $user = TipoMascota::find($id);
-            if (!empty($user)) {
-                $rta = Helper::formatResponse(true, $user);
+            $materia = Materia::find($id);
+            if (!empty($materia)) {
+
+                if ($tipoUser == 1) {
+                    $materia->vacantes = "";
+                    $materia->profesor_id = "";
+
+                }
+                $rta = Helper::formatResponse(true, $materia);
                 $response->getBody()->write($rta);
                 return $response;
             } else {
-                throw new \Exception("Tipo Materia no encontrado", 404);
+                throw new \Exception("id Materia no encontrado", 404);
             }
         } else {
-            throw new \Exception("Id no puede ser inferior a 1", 400);
+            throw new \Exception("Id no puede ser inferior a 1 o vacio", 400);
         }
 
     }
@@ -51,19 +63,10 @@ class MateriaController
         return $response;
     }
 
-    static public function validateTipoExists($input)
+    static public function validateMateriaExists($input)
     {
-        return TipoMascota::where('tipo', $input)->exists();
+        return Materia::where('id', $input)->exists();
 
-    }
-
-    public function delete(Request $request, Response $response, $args)
-    {
-        $id = $args["id"] ?? NULL;
-        $usuario = TipoMascota::findOrFail($id);
-        $rta = Helper::formatResponse($usuario->delete(), "Soft deleted, Done!");
-        $response->getBody()->write($rta);
-        return $response;
     }
 
 

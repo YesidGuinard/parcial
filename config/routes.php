@@ -24,6 +24,12 @@ return function ($app) {
         $group->put('/{id}/{profesor}[/]', MateriaController::class . ':AsignaProfe');
     })->add(AdminTypeMiddleware::class)->add(new AuthMiddleware());
 
+    $app->group('/materias', function (RouteCollectorProxy $group) {
+        $group->get('/{id}[/]', MateriaController::class . ':getByID');
+    })->add(new AuthMiddleware());
+
+
+
     /*
     $app->group('/usuarioss', function (RouteCollectorProxy $group) {
         $group->get('[/]', UsuariosController::class . ':getAll')->add(SpecificValidateMiddleware::class)->add(SpecificOutAllUserMiddleware::class);
