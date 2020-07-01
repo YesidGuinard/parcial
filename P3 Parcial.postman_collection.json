@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "783ab0de-c08e-4bf7-b70f-2055c3eb56e0",
+		"name": "P3 Parcial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "C",
+			"item": [
+				{
+					"name": "Punto 1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@utn.ar",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "tipo",
+									"value": "3",
+									"type": "text"
+								},
+								{
+									"key": "nombre",
+									"value": "Pepe",
+									"type": "text"
+								},
+								{
+									"key": "legajo",
+									"value": "1113",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/parcial/public/usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parcial",
+								"public",
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "admin@utn.ar",
+									"type": "text"
+								},
+								{
+									"key": "clave",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/parcial/public/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parcial",
+								"public",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InByb2Zlc29yQHV0bi5hciIsIm5vbWJyZSI6Ik1hcmlvIiwidGlwbyI6Mn0.Lkh5ARaWV-vNtf77DcYT-85fpD1VJsQwUTwocz5nSoE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "materia",
+									"value": "Programacion4",
+									"type": "text"
+								},
+								{
+									"key": "cuatrimestre",
+									"value": "4",
+									"type": "text"
+								},
+								{
+									"key": "vacantes",
+									"value": "40",
+									"type": "text"
+								},
+								{
+									"key": "profesor",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/parcial/public/materias",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parcial",
+								"public",
+								"materias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InByb2Zlc29yQHV0bi5hciIsIm5vbWJyZSI6Ik1hcmlvIiwidGlwbyI6Mn0.Lkh5ARaWV-vNtf77DcYT-85fpD1VJsQwUTwocz5nSoE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "legajo",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "nombre",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "imagen",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/parcial/public/materias/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parcial",
+								"public",
+								"materias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 5",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFkbWluQHV0bi5hciIsIm5vbWJyZSI6IlBlcGUiLCJ0aXBvIjozfQ.lXYRzaaraZ-3YJaBQjqhFL3gqDU8XizQ68UQJunAkWk",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/parcial/public/materias/1/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parcial",
+								"public",
+								"materias",
+								"1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 6",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/parcial/public/materias/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parcial",
+								"public",
+								"materias",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Punto 7",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:8080/parcial/public/materias",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"parcial",
+								"public",
+								"materias"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
